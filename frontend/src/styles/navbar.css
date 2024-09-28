@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+DE+Grund:wght@100..400&display=swap');
+/* General Styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Playwrite Deutschland Grundschrift';
+}
+
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #F0A500;
+    color: white;
+    position: relative;
+    box-shadow: 10px 10px 30px #CF7500;
+}
+
+.navbar-logo h2 {
+    color: #fff;
+    font-family: 'Arial Black', sans-serif;
+}
+.navbar-logo h2 span{
+    color:#45474B;
+}
+.navbar-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.navbar-links li a {
+    color: #F4F4F4;
+    text-decoration: none;
+    font-size: 18px;
+    transition: color 0.3s ease;
+}
+
+.navbar-links li a:hover {
+    color: #393E46;
+}
+
+/* User Icon Styling */
+.icons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    font-size: 28px;
+    margin-left: 20px;
+    text-decoration: none;
+}
+.user-icon,.account-icon{
+    padding-right: 10px;
+}
+.user-icon:hover, .account-icon:hover {
+    color: #393E46;
+}
+
+.mobile-menu-icon {
+    display: none;
+    font-size: 28px;
+    color: white;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+    .navbar-links {
+        display: none;
+    }
+
+    .navbar-links-mobile {
+        display: block;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 100%;
+        background-color: #333;
+        text-align: center;
+    }
+
+    .navbar-links-mobile li {
+        padding: 15px 0;
+        border-bottom: 1px solid #555;
+    }
+    .navbar-links-mobile li a{
+        color:#fff;
+        text-decoration: none;
+    }
+    .navbar-links-mobile li:hover{
+        color: tomato;
+    }
+
+    .mobile-menu-icon {
+        display: block;
+    }
+
+    /* Hide the user icon in mobile view */
+    .user-icon {
+        display: none;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+

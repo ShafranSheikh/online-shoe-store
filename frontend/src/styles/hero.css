@@ -1,0 +1,95 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 650px;
+    background-color: #F0A500;
+}
+
+.content-box {
+    background-color: #F4F4F4;
+    display: flex; /* Set to flex to allow side-by-side layout */
+    position: relative;
+    height: 500px;
+    width: 95%;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Optional: adds some depth */
+    overflow: hidden; /* Prevents overflow of child elements */
+}
+
+.img-box {
+    height: 450px; /* Fixed height for the image box */
+    width: 450px; /* Fixed width for the image box */
+    margin-top: 25px;
+    margin-left: 15px;
+    flex-shrink: 0; /* Prevent shrinking of the image box */
+    border-radius: 10px 0 0 10px; /* Rounded corners on the left */
+    display: flex; /* Use flex to center image vertically */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    padding-left: 30px; /* Add space around the image */
+    box-sizing: border-box; /* Include padding in height/width calculations */
+    
+}
+
+.img-box img {
+    max-height: 100%; /* Allow image to fill the box while respecting aspect ratio */
+    max-width: 100%; /* Allow image to fill the box while respecting aspect ratio */
+    object-fit: contain; /* Ensure the image is contained within the box without distortion */
+    border-radius: 25px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.7);
+}
+
+.text-box {
+    flex: 1; /* Allow text box to grow and fill available space */
+    padding: 20px; /* Add some padding for text */
+    text-align: justify; /* Center text horizontally */
+    margin-right: 20px;
+    color: #333; /* Text color */
+    display: flex; /* Center content vertically */
+    flex-direction: column; /* Stack elements vertically */
+    justify-content: center; /* Center elements vertically */
+}
+.text-box h1{
+    margin-bottom: 40px;
+    font-size: 40px;
+}
+.text-box p{
+    font-size: 22px;
+}
+.text-box span{
+    color:#FF6500 ;
+    font-weight: 700;
+}
+.text-box .button-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+    margin: 30px;
+}
+.button-container button{
+    padding: 10px;
+    margin: 10px;
+    width: 150px ;
+    font-size: 15px;
+    border-radius: 5px;
+}
+.button-container .hero-button-one{
+    background-color: #FF6600;
+    border: solid 2px #F4F4F4;
+    color: #F4F4F4;
+}
+.button-container .hero-button-one:hover{
+    background-color:#F4F4F4;
+    color:#333 ;
+    border: solid 2px #FF6600  ;
+}
+.button-container .hero-button-two{
+    border: solid 2px #FF6600;
+}
+.button-container .hero-button-two:hover{
+    background-color:#FF6600;
+    color:#F4F4F4 ;
+    border: solid 2px #F4F4F4  ;
+}
