@@ -1,0 +1,7 @@
+.image-container{
+    background-color:#F0A500;
+    background-image: linear-gradient(#F0A500, #fff)
+}
+img{
+    margin: 30px 12% ;
+}
