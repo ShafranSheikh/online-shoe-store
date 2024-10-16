@@ -1,0 +1,69 @@
+.featured-container h1{
+    margin:auto 20px;
+    color:#393E46;
+}
+
+.card-container {
+    height: 320px;
+    width: 250px;
+    margin: 20px auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 15px; /* Added border-radius to make the card corners rounded */
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out;
+}
+
+.card-container:hover {
+    transform: scale(1.05);
+}
+
+.card-container .card-image {
+    height: 200px;
+    border-top-left-radius: 15px; /* Rounds the top edges */
+    border-top-right-radius: 15px;
+    overflow: hidden;
+}
+
+.card-container .card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    margin: 0;
+}
+
+.card-container .card-content {
+    height: 120px;
+    padding: 10px;
+    color: white;
+    background-color: #333333; /* Custom background color for card content */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-bottom-left-radius: 15px; /* Rounds the bottom edges */
+    border-bottom-right-radius: 15px;
+}
+
+.card-container .card-content h2 {
+    margin: 0;
+    font-size: 18px;
+}
+
+.card-container .card-content p {
+    margin: 0;
+    font-size: 14px;
+}
+
+.card-container .card-content button {
+    background-color: #ff6600;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.card-container .card-content button:hover {
+    background-color: #e65c00;
+}
