@@ -44,6 +44,15 @@
 }
 
 /* User Icon Styling */
+.user-icon button {
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+    outline: none;
+}
+
 .icons {
     display: flex;
     justify-content: space-between;
@@ -53,13 +62,48 @@
     margin-left: 20px;
     text-decoration: none;
 }
-.user-icon,.account-icon{
+
+.user-icon, .account-icon {
     padding-right: 10px;
 }
+
 .user-icon:hover, .account-icon:hover {
     color: #393E46;
 }
-
+.dropdown-list {
+    list-style: none; 
+    margin: 5px 10px;
+    padding: 0; 
+    background-color: #fff; 
+    color: #393E46;
+    width: 120px; 
+    border-radius: 4px; 
+    position: absolute; 
+    top: 100%;
+    right: 0; 
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+  }
+  
+  .dropdown-list {
+    display: flex;
+    flex-direction: column;
+    padding: 5px 10px;
+    cursor: pointer; 
+    transition: background-color 0.2s ease; 
+  }
+  
+  .dropdown-list:hover {
+    background-color: #444; /* Change background on hover */
+    color: #F4F4F4;
+  }
+  
+  .dropdown-list:active {
+    background-color: #555; /* Active state */
+  }
+  .dropdown-list li{
+    font-size: 20px;
+}
 .mobile-menu-icon {
     display: none;
     font-size: 28px;

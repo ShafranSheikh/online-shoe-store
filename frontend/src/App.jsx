@@ -3,11 +3,11 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import Cart from './pages/cart';
 import Checkoutpage from './pages/checkoutPage'
 import Homepage from './pages/HomePage';
-import Loginpage from './pages/LoginPage';
+import Loginpage from './pages/auth/LoginPage';
 import Productdetailspage from './pages/productdetailsPage';
 import Men from './pages/Men';
 import Women from './pages/Women';
-import Signuppage from './pages/SignupPage';
+import Signuppage from './pages/auth/SignupPage';
 import Navbar from './components/navbar';
 function App() {
 
