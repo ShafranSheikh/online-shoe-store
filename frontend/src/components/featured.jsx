@@ -1,16 +1,18 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import '../styles/featured.css';
+import axios from 'axios';
 function Featured(){
+    
     return (
         <div className='featured-container'>
             <h1>Featured</h1>
             <div className="card-container">
                 <div className="card-image">
-                    <img src="https://placehold.co/250x200" alt="" />
+                    <img src={men.url} alt="" />
                 </div>
                 <div className="card-content">
-                    <h2>Nike Shoes</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                    <h2>{men.name}</h2>
+                    <p>{men.description}</p>
                     <button> Buy now </button>
                 </div>
             </div>
