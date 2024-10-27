@@ -1,0 +1,248 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    text-decoration: none;
+    border:none;
+    outline: none;
+    scroll-behavior: smooth;
+    font-family: 'poppins',sans-serif;
+}
+h1{
+    text-align: center;
+    margin: 10px auto;
+}
+
+/* Parent container for the cart */
+.cart-container{
+    margin: 20px 10px;
+    /* background-color: #ced4da; */
+    min-height: 41rem;
+    border-radius: 8px;
+    display: grid;
+    grid-template-columns: auto auto;
+    box-shadow: 2px 2px 20px #aaaaaa;
+}
+
+/* Left side container which contains cart details */
+.cart-item{
+    min-height: 40em;
+    /* box-shadow: 2px 2px 20px #aaaaaa; */
+    width: 55em;
+    margin: 10px 10px;
+    border-radius: 7px;
+    display: grid;
+    grid-template-rows: auto;
+}
+/* Right side container which containe checkout details and promo codes */
+.item-checkout{
+    height: 30em;
+    box-shadow: 2px 2px 20px #aaaaaa;
+    width: 30em;
+    margin: 10px 10px;
+    border-radius: 7px;
+    border: 2px solid #14213d;
+}
+.item-checkout h2{
+    color:#6c757d;
+}
+/* Container which contains cart item inside it's parent cart-item */
+.item-container{
+    height: 15.5em;
+    box-shadow: 2px 2px 20px #aaaaaa;
+    margin: 10px;
+    border-radius: 7px;
+    display: grid;
+    grid-template-columns: auto auto;
+}
+.item-container img{
+    margin: 16px 10px;
+    height: 13em;
+    object-fit: cover;
+}
+.item-container .item-content{
+    height: 13em;
+    width: 36em;
+    margin-top: 16px;
+    margin-bottom: 16px;
+    margin-right: 12px;
+    box-shadow: 2px 2px 20px #aaaaaa;
+    border-radius: 10px;
+}
+.item-container .item-content .item-description{
+    height: 7.5em;
+    background-color: #eeb902;
+    box-shadow: 2px 2px 20px #e8e9f3;
+    color: white;
+    margin: 5px;
+    border-radius: 5px;
+    padding: 7px;
+}
+.item-container .item-content .item-description p{
+    margin: 0;
+    text-align: justify;
+}
+.item-container .item-content .item-summary{
+    height: 4.5em;
+    background-color: #e5e5e5;
+    box-shadow: 2px 2px 20px #aaaaaa;
+    margin: 5px;
+    display: grid;
+    grid-template-columns: auto auto auto auto auto ;
+    column-gap: 4px;
+    padding: 10px;
+}
+.item-container .item-content .item-summary .item-price,
+.item-container .item-content .item-summary .item-quantity,
+.item-container .item-content .item-summary .item-total,
+.item-container .item-content .item-summary .remove-button
+{
+    text-align: center;
+}
+.item-container .item-content .item-summary .item-price p,
+.item-container .item-content .item-summary .item-quantity p,
+.item-container .item-content .item-summary .item-total p{
+    margin: 2px;
+}
+.item-container .item-content .item-summary .item-quantity button{
+    background-color:#e5e5e5 ;
+    padding: 2px;
+}
+.item-container .item-content .item-summary .item-buttons{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+.item-container .item-content .item-summary .item-buttons .remove-button,
+.item-container .item-content .item-summary .item-buttons .add-button{
+    border-radius: 4px;
+    color: white;
+    height: 100%;
+    width: 8em;
+    transition-duration: 0.5s;
+    padding: 5px;
+}
+.item-container .item-content .item-summary .item-buttons .remove-button{
+    background-color: #ba181b;
+}
+.item-container .item-content .item-summary .item-buttons .add-button{
+    background-color: #1a7431;
+}
+.item-container .item-content .item-summary .item-buttons .remove-button:hover {
+    background-color: #e5e5e5; /* Green */
+    color:#000000 ;
+    border: 1px solid #ba181b;
+}
+.item-container .item-content .item-summary .item-buttons .add-button:hover {
+    background-color: #e5e5e5; /* Green */
+    color:#000000 ;
+    border: 1px solid #1a7431;
+}
+/* .item-container .item-content  .item-size{
+    height: 4.75em;
+    margin: 5px;
+    border-radius: 2px;
+    background-color: #e5e5e5;
+}
+.item-container .item-content  .item-size .size-buttons{
+    height: 2.2em;
+    margin: 2px;margin: 2px 8px;
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    justify-content: center;
+    align-items: center;
+
+}
+.item-container .item-content  .item-size .size-buttons button{
+    height: 2.5em;
+    width:5em;
+    padding: 2px;
+    border-radius: 5px;
+    border: 1px solid #aaaaaa;
+    transition-duration: 0.5s;
+}
+.item-container .item-content  .item-size .size-buttons button:hover{
+    background-color: #14213d;
+    border: none;
+    color: #cfdbd5;
+} */
+
+/* Checkout section styles */
+.item-checkout{
+    display: grid;
+    grid-template-rows: auto;
+}
+.item-checkout .promo-content{
+    height: 7em;
+    margin: 6px 10px;
+    padding: 10px;
+    box-shadow: 2px 2px 20px #aaaaaa;
+}
+.item-checkout .form-content{
+    display: flex;
+    flex-direction: row;
+    height: 3.6em;
+    background-color: #f8f9fa;
+}
+.item-checkout .form-content input{
+    height: 3.6em;
+    width: 20em;
+    margin: 5px 7px;
+    border: 2px solid #e9ecef;
+    text-align: center;
+}
+.item-checkout .form-content button{
+    height: 3.6em;
+    width: 10.5em;
+    margin: 5px 7px;
+    border: 2px solid #000000;
+    background-color: #000000;
+    color: #e5e5e5;
+    transition-duration: 0.5s;
+}
+.item-checkout .form-content button:hover{
+    background-color: #e5e5e5;
+    color: #000000;
+}
+
+.item-checkout .checkout-summary{
+    height: 15em;
+    margin: 3px 10px;
+    border: 1px solid #dee2e6;
+}
+.item-checkout .checkout-summary table  {
+    height: 15em;
+    width: 100%;
+    padding: 10px;
+}
+.item-checkout .checkout-summary table tr .summary-headding{
+    text-align: start;
+}
+.item-checkout .checkout-summary table  tr{
+    width: 100%;
+}
+.item-checkout .checkout-summary table tr .summary-details{
+    text-align: end;
+}
+.item-checkout .checkout-button{
+    height: 3.5em;
+    margin: 3px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.item-checkout .checkout-button button{
+    height: 3.2em;
+    margin: 2px;
+    width: 100%;
+    border-radius: 3px;
+    background-color: #ff9100;
+    transition-duration: 0.5s;
+}
+.item-checkout .checkout-button button:hover{
+    background-color:#ffb24d ;
+}

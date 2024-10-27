@@ -44,7 +44,7 @@
 }
 
 /* User Icon Styling */
-.user-icon button {
+.user-icon button ,.cart-icon button{
     background: none;
     border: none;
     padding: 0;
@@ -63,13 +63,14 @@
     text-decoration: none;
 }
 
-.user-icon, .account-icon {
+.user-icon, .cart-icon {
     padding-right: 10px;
 }
 
-.user-icon:hover, .account-icon:hover {
+.user-icon:hover, .cart-icon:hover {
     color: #393E46;
 }
+
 .dropdown-list {
     list-style: none; 
     margin: 5px 10px;

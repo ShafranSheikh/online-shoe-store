@@ -3,10 +3,12 @@ import { Link } from "react-router-dom";
 import "../styles/navbar.css";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
-import NestedList from '../components/navbarlist'
+import NestedList from '../components/navbarlist';
+import { useNavigate } from "react-router-dom";
 function Navbar() {
   const [isMobile, setIsMobile] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  const navigate = useNavigate();
   const handleMenuToggle = () => {
     setIsMobile(!isMobile);
   };
@@ -56,8 +58,11 @@ function Navbar() {
         </ul>
         )}
 
-        <div className="account-icon">
-          <ShoppingCartOutlinedIcon />
+        <div className="cart-icon">
+          <button onClick={()=> navigate('/MyCart')}>
+            <ShoppingCartOutlinedIcon sx={{ color: 'white' }}/>
+          </button>
+          
         </div>
       </div>
       <button className="mobile-menu-icon" onClick={handleMenuToggle}>
