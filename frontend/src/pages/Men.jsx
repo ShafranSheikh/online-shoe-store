@@ -21,10 +21,6 @@ const Men = ()=>{
                         <div className="content-container">
                             <h2>{mItem.name}</h2>
                             <h5>price: ${mItem.price}</h5>
-                            <div className="description-container">
-                                <p>{mItem.description}</p>
-                            </div>
-                            
                             <div className="card-buttonContainer">
                                 <button>View Product</button>
                             </div>
