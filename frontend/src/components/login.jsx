@@ -13,9 +13,6 @@ function Login() {
     };
     return (
     <div className="loginform-container">
-        <div className="icon-container">
-        <PersonIcon />
-        </div>
         <h1>Login</h1>
         <div className="input-container">
         <Form
@@ -37,7 +34,7 @@ function Login() {
                 },
             ]}
             >
-            <Input prefix={<MailLockIcon />} placeholder="email" />
+            <Input  placeholder="email" />
             </Form.Item>
             <Form.Item
             name="password"
@@ -49,7 +46,6 @@ function Login() {
             ]}
             >
             <Input
-                prefix={<LockIcon />}
                 type="password"
                 placeholder="Password"
             />
@@ -59,7 +55,7 @@ function Login() {
                 <Form.Item name="remember" valuePropName="checked"  noStyle>
                 <Checkbox>Remember me</Checkbox>
                 </Form.Item>
-                <a href="">Forgot password</a>
+                <a href="">Forgot password?</a>
             </Flex>
             </Form.Item>
             <Form.Item>

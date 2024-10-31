@@ -15,7 +15,7 @@ body {
 }
 
 .loginform-container{
-    height: auto;
+    height: 32rem;
     width: 25rem;
     margin: 5rem auto;
     padding:  2.5rem 2rem;
@@ -24,7 +24,7 @@ body {
     background-color: white;
 }
 
-.icon-container{
+/* .icon-container{
     display: flex;
     height: 3.3em;
     width: 3.5em;
@@ -34,11 +34,11 @@ body {
     align-items: center;
     justify-content: center;
     color: white;
-}
+} */
 
 .loginform-container h1{
-    text-align: center;
-    margin: 10px 0;
+    text-align: left;
+    margin: 5px 0;
     font-family: 'Nunito', sans-serif;
     font-weight: 800;
     font-size: 1.8rem;
@@ -46,7 +46,7 @@ body {
 }
 
 .input-container{
-    margin-top: 2rem;
+    margin-top: 1rem;
     background-color: #f9f9f9;
     padding: 1.2rem;
     border-radius: 10px;
@@ -62,7 +62,6 @@ body {
 }
 
 .ant-btn-primary {
-    background-color: #151515;
     border: none;
     height: 42px;
     font-size: 1rem;
@@ -70,9 +69,6 @@ body {
     border-radius: 8px;
 }
 
-.ant-btn-primary:hover {
-    background-color: #DC5F00;
-}
 
 .ant-checkbox-wrapper {
     font-size: 0.9rem;
@@ -90,16 +86,15 @@ a:hover {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 1.5rem;
-    padding: 0.2em;
-    gap: 20px;
+    gap: 15px;
 }
 
 .social-login img {
-    height: 2.4rem;
+    height: 2rem;
     width: 2.5rem;
     object-fit: contain;
     transition: transform 0.3s ease;
+    background-color: transparent;
 }
 
 .social-login img:hover {
@@ -108,7 +103,7 @@ a:hover {
 
 p {
     text-align: center;
-    margin: 1.5rem 0 1rem;
+    margin: 0.5rem ;
     color: #555;
     font-weight: 500;
 }
