@@ -1,47 +1,53 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import '../styles/mycart.css';
-
+import { ShopContext } from '../Context/ShopContext';
 const CartComponent = (props) => {
+    const {allProducts, cartItems, addToCart} = useContext(ShopContext);
     return (
         <>
         <h1>My Cart</h1>
     <div className="cart-container">
         <div className="cart-item">
-            <div className="item-container">
-                <img src="https://placehold.co/200x150" alt="" />
-                <div className="item-content">
-                    <div className="item-description">
-                        <h2>Nike Shoes</h2>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt quo sed quia impedit enim quidem minus architecto quod, sint inventore numquam expedita nisi suscipit eos.</p>
-                    </div>
-                    <div className="item-summary">
-                        <div className="item-price">
-                                <h3>Price</h3>
-                                <p>$450.00</p>
+        {allProducts.map((e)=>{
+            if(cartItems[e.id]>0){
+                return(
+                <div className="item-container"key={e.id}>
+                    {e.image?<img src={e.data} alt="" />: <p>Image not available</p>}
+                    <div className="item-content">
+                        <div className="item-description">
+                            <h2>{e.name}</h2>
+                            <p>{e.description}</p>
                         </div>
-                        <div className="item-quantity">
-                            <h3>Quantity</h3>
-                            <p>
-                                <button onClick={props.addItem}><span>+</span></button><span> {props.count}0 </span>
-                                <button onClick={props.removeItem}><span>-</span></button>
-                            </p>
+                        <div className="item-summary">
+                            <div className="item-price">
+                                    <h3>Price</h3>
+                                    <p>${e.price}</p>
+                            </div>
+                            <div className="item-quantity">
+                                <h3>Quantity</h3>
+                                <p>
+                                    <button onClick={props.addItem}><span>+</span></button><span> {props.count}0 </span>
+                                    <button onClick={props.removeItem}><span>-</span></button>
+                                </p>
+                            </div>
+                            <div className="item-total">
+                                <h3>Total</h3>
+                                <p>$400.00</p>
+                            </div>
+                            <div className="item-total">
+                                <h3>Size</h3>
+                                <p>US 5</p>
+                            </div>
+                            <div className="item-buttons">
+                                <button className='remove-button'>Remove Item</button>
+                                <button className='add-button'>Proceed to pay</button>
+                            </div> 
+                            
                         </div>
-                        <div className="item-total">
-                            <h3>Total</h3>
-                            <p>$400.00</p>
-                        </div>
-                        <div className="item-total">
-                            <h3>Size</h3>
-                            <p>US 5</p>
-                        </div>
-                        <div className="item-buttons">
-                            <button className='remove-button'>Remove Item</button>
-                            <button className='add-button'>Proceed to pay</button>
-                        </div> 
-                        
                     </div>
                 </div>
-            </div>
+            )}
+        })}
         </div>
         <div className="item-checkout">
             <div className="promo-content">
