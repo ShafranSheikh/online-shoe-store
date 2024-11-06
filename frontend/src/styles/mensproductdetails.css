@@ -69,7 +69,7 @@
     color: #495057;
 }
 .product-container .size-button-container{
-    height: 14.4em;
+    min-height: 14.4em;
     background-color: #dee2e6;
     margin: 10px;
     width: 46em;

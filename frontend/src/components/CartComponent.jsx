@@ -1,53 +1,91 @@
-import React, { useContext } from 'react'
+import React, {useState, useEffect} from 'react'
 import '../styles/mycart.css';
-import { ShopContext } from '../Context/ShopContext';
-const CartComponent = (props) => {
-    const {allProducts, cartItems, addToCart} = useContext(ShopContext);
+import { useCart } from '../Context/ShopContext';
+const CartComponent = () => {
+    const [counts, setCounts] = useState([]);
+    const {cartItems, addToCart, removeFromCart, clearCart} = useCart();
+    //Initialize count based on cartItems length
+    useEffect(()=>{
+        const initialCounts = cartItems.map((item)=> item.quantity || 1);
+        setCounts(initialCounts)
+    },[cartItems])
+    //calculate the total for the cart
+    const calculateTotal = () =>{
+        return cartItems.reduce((total, item, index)=> {
+            const quantity = counts[index] || 0;
+            return total + item.price * quantity;
+        },0).toFixed(2);
+    };
+    //function to increment quantity
+    function addItems(index) {
+        const newCounts = [...counts];
+        newCounts[index] += 1;
+        setCounts(newCounts);
+
+        //update the item in the cart context
+        addToCart({...cartItems[index], quantity: newCounts[index]});
+    }
+    //function to decrement quantity
+    function removeItems(index) {
+        const newCounts = [...counts];
+        if (newCounts[index] > 1) {
+            newCounts[index] -= 1;
+            setCounts(newCounts);
+
+            // Update the item in the cart context with the new quantity
+            addToCart({ ...cartItems[index], quantity: newCounts[index] });
+        }else{
+            // Remove the item from the cart context only when quantity reaches 0
+            removeFromCart(cartItems[index].id);
+        }
+    }
     return (
         <>
         <h1>My Cart</h1>
     <div className="cart-container">
         <div className="cart-item">
-        {allProducts.map((e)=>{
-            if(cartItems[e.id]>0){
-                return(
-                <div className="item-container"key={e.id}>
-                    {e.image?<img src={e.data} alt="" />: <p>Image not available</p>}
+        {cartItems.length >0 ?(
+        cartItems.map((item, index)=>(
+                <div className="item-container"key={item.id}>
+                    {item.image?<img src={item.image} alt="" />: <p>Image not available</p>}
                     <div className="item-content">
                         <div className="item-description">
-                            <h2>{e.name}</h2>
-                            <p>{e.description}</p>
+                            <h2>{item.name}</h2>
+                            <p>{item.description}</p>
                         </div>
                         <div className="item-summary">
                             <div className="item-price">
                                     <h3>Price</h3>
-                                    <p>${e.price}</p>
+                                    <p>${item.price}</p>
                             </div>
                             <div className="item-quantity">
                                 <h3>Quantity</h3>
                                 <p>
-                                    <button onClick={props.addItem}><span>+</span></button><span> {props.count}0 </span>
-                                    <button onClick={props.removeItem}><span>-</span></button>
+                                <button onClick={()=>removeItems(index)}><span>-</span></button>
+                                    <span> {counts[index]}</span>
+                                    <button onClick={()=>addItems(index)}><span>+</span></button>
                                 </p>
                             </div>
                             <div className="item-total">
                                 <h3>Total</h3>
-                                <p>$400.00</p>
+                                <p>${item.price * (counts[index] || 0).toFixed(2)}</p>
                             </div>
                             <div className="item-total">
                                 <h3>Size</h3>
-                                <p>US 5</p>
+                                <p>US {item.size}</p>
                             </div>
                             <div className="item-buttons">
-                                <button className='remove-button'>Remove Item</button>
+                                <button className='remove-button' onClick={()=> removeFromCart(item.id)}>Remove Item</button>
                                 <button className='add-button'>Proceed to pay</button>
                             </div> 
                             
                         </div>
                     </div>
                 </div>
-            )}
-        })}
+            ))
+        ): (
+            <p> your cart is empty </p>
+        )}
         </div>
         <div className="item-checkout">
             <div className="promo-content">
@@ -76,7 +114,7 @@ const CartComponent = (props) => {
                         </tr>
                         <tr>
                             <td className='summary-headding'><h4>Total</h4></td>
-                            <td className='summary-details'>$400.00</td>
+                            <td className='summary-details'>${calculateTotal()}</td>
                         </tr>
                     </tbody>
                 </table>

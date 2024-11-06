@@ -3,20 +3,35 @@ import { useLocation } from 'react-router-dom';
 import '../../styles/mensproductdetails.css';
 import ShoppingCartSharpIcon from '@mui/icons-material/ShoppingCartSharp';
 import { useParams } from 'react-router-dom';
-import { ShopContext } from '../../Context/ShopContext';
+import { useCart } from '../../Context/ShopContext';
 const MensShoeDetails = () => {
-  const [size, setSize] = useState();
-  const { allProducts, addToCart } = useContext(ShopContext); // Access context
-  
+
+  const [size, setSize] = useState(null);
   const location = useLocation();
   const { state: men } = location || {};
+
+  //Using Cart contex
+  const {addToCart} = useCart();
 
   if(!men){
     return <p>No Product Details Available</p>
   }
   const handleAddToCart = () =>{
-    addToCart(men.id);
-  }
+    if(!size){
+      alert("Please select a size before adding to cart");
+      return;
+    }
+
+    //Add item to cart with full details including selected size
+    addToCart({
+      id:men.id,
+      name: men.name,
+      price: men.price,
+      description: men.description,
+      size: size,
+      image: men.data
+    });
+  };
   return (
       <div className='product-container'>
         <div className="img-container">
@@ -33,13 +48,13 @@ const MensShoeDetails = () => {
           <div className="size-button-container">
             <h2>Select Size:</h2>
             <div className="size-buttons">
-            {[5, 5.5, 6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5, 10, 10.5].map((size) => (
+            {[5, 5.5, 6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5, 10, 10.5].map((sizeOption) => (
               <button 
-                key={size} 
-                onClick={() => setProductSize(men.id, size)} 
-                className={cartItems[men.id]?.selectedSize === size ? 'selected' : ''}
+                key={sizeOption} 
+                onClick={() => setSize(sizeOption)}
+                className={size === sizeOption ? 'selected' : ''} 
               >
-                US {size}
+                US {sizeOption}
               </button>
             ))}
             </div>

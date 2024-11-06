@@ -1,49 +1,42 @@
-import React, { createContext, useState, useEffect } from "react";
+import { createContext, useContext, useState } from "react";
 
-export const ShopContext = createContext();
+const CartContext = createContext();
+export const CartProvider = ({children})=>{
+    const [cartItems, setCartItems] = useState([]);
 
-const ShopContextProvider = ({children, allProducts}) => {
-    
-    //Initialize cart with all product default quantity of 0
-    const initializeCart = (products)=>{
-        const cart ={};
-        products.forEach((product)=>{
-            cart[product.id] = {...product,quantity: 0, selectedSize: null};
+    const addToCart = (item) =>{
+        setCartItems((prevItems)=> {
+            // check if item already exists in the cart
+            const existingItem = prevItems.find((cartItem)=> cartItem.id === item.id && cartItem.size === item.size);
+            if(existingItem){
+                // Update the quantity of the existing item
+                return prevItems.map((cartItem)=>
+                    cartItem.id === item.id && cartItem.size === item.size 
+                    ? {...cartItem, quantity: item.quantity}
+                    : cartItem
+                );
+            }else{
+                //Add new item with quantity set to 1
+                return[...prevItems, {...item, quantity :1}];
+            }
         });
-        return cart;
-    }
-    const [cartItems, setCartItems] = useState(initializeCart(allProducts));
-
-    //function to set selected size for a product
-    const setProductSize = (productId, size) =>{
-        setCartItems((prevCart)=>({
-            ...prevCart,
-            [productId]:{...prevCart[productId],selectedSize: size},
-        }));
     };
-    //function to add a product to the cart
-    const addToCart = (productId)=>{
-        const product = cartItems[productId];
-        if(!product.selectedSize){
-            alert('please select a size before adding to cart');
-        }
-        return;
-    }
-    setCartItems((prevCart)=>({
-        ...prevCart,
-        [productId]: {...product, quantity:product.quantity +1},
-    }));
 
-   
-    const contextValue = {
-        setProductSize,
-        cartItems,
-        addToCart,
+    const removeFromCart = (itemId) =>{
+        setCartItems((prevItems)=> prevItems.filter((item)=>item.id !== itemId))
     };
+
+    const clearCart = () =>{
+        setCartItems([]);
+    };
+
     return(
-        <ShopContext.Provider value={contextValue}>
-            {props.children}
-        </ShopContext.Provider>
+        <CartContext.Provider value={{cartItems, addToCart, removeFromCart,clearCart}}>
+            {children}
+        </CartContext.Provider>
     );
 };
-export default ShopContextProvider;
+
+export const useCart = () => useContext(CartContext);
+
+export default CartContext;

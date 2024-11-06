@@ -10,10 +10,10 @@ import Navbar from './components/navbar';
 import MyCart from './pages/MyCart';
 import MensShoeDetails from './components/ProductDetails/MensShoeDetails';
 import WomensShoeDetails from './components/ProductDetails/WomensShoeDetails';
-import ShopContextProvider from './Context/ShopContext';
+import ShopContextProvider, { CartProvider } from './Context/ShopContext';
 function App() {
   return (
-    <ShopContextProvider>
+    <CartProvider>
       <Router>
         <Navbar />
         <Routes>
@@ -28,7 +28,7 @@ function App() {
           <Route path='/MyCart' element={<MyCart />} />
         </Routes>
       </Router>
-    </ShopContextProvider> 
+      </CartProvider>
   )
 }
 
