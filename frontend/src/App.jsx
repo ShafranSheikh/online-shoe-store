@@ -9,8 +9,10 @@ import Signuppage from './pages/auth/SignupPage';
 import Navbar from './components/navbar';
 import MyCart from './pages/MyCart';
 import MensShoeDetails from './components/ProductDetails/MensShoeDetails';
+import { CartProvider } from './Context/ShopContext';
 import WomensShoeDetails from './components/ProductDetails/WomensShoeDetails';
-import ShopContextProvider, { CartProvider } from './Context/ShopContext';
+import Kid from './pages/Kid';
+import KidsShoeDetails from './components/ProductDetails/KidsShoeDetails';
 function App() {
   return (
     <CartProvider>
@@ -23,8 +25,10 @@ function App() {
           <Route path='/Signuppage' element={<Signuppage />} />
           <Route path='/Men' element={<Men />} /> 
           <Route path='/MensShoeDetails/:id' element={<MensShoeDetails />} />
-          <Route path='/Women' element={<Women />}/ >
+          <Route path="/Women" element={<Women />} />
           <Route path='/WomensShoeDetails/:id' element={<WomensShoeDetails />} />
+          <Route path='/Kid' element={<Kid />} />
+          <Route path='/KidsShoeDetails/:id' element={<KidsShoeDetails />} />
           <Route path='/MyCart' element={<MyCart />} />
         </Routes>
       </Router>

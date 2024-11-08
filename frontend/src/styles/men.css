@@ -19,13 +19,14 @@
 }
 .menItem-container .promo-container{
     margin: 20px;
-    height: 14em;
+    height: 25rem;
     background-color: #f2f2f2;
 }
 .menItem-container .promo-container img{
     height: 100%;
     width: 100%;
     object-fit: cover;
+    background-repeat: no-repeat;
     margin: 0;
 }
 .Itemcard-container{

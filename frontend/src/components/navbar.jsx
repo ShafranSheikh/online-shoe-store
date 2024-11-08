@@ -38,6 +38,9 @@ function Navbar() {
         <li>
           <Link to="/Women">Womens</Link>
         </li>
+        <li>
+          <Link to="/Kid">Kids</Link>
+        </li>
         {isMobile && (
           <li>
             <Link to="/loginpage">Account</Link>

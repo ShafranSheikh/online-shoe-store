@@ -4,7 +4,28 @@ import axios from 'axios'
 import '../styles/men.css'
 const Men = ()=>{
     const [menItem, setMenItem] = useState([]);
+    const [image, setImage] = useState(null);
     const navigate = useNavigate();
+
+
+    const fetchRandomImage = async ()=>{
+        try{
+            const response = await axios.get('http://localhost:3000/api/Ads/random');
+            setImage(response.data.imgsrc);
+        }catch(error){
+            console.error("Error Fetching Images", error);
+        }
+    };
+    
+    useEffect(()=>{
+        fetchRandomImage();
+
+        const interval = setInterval(()=>{
+            fetchRandomImage();
+        },15000);
+        return () => clearInterval(interval); //cleanup interval on component unmount
+    })
+    
     useEffect(() => {
         const fetchMenItem = async () =>{
             try{
@@ -15,12 +36,12 @@ const Men = ()=>{
             };
         }
         fetchMenItem();
-      }, []);
+    }, []);
 
     return(
             <div className="menItem-container">
                 <div className="promo-container">
-                    <img src="https://placehold.co/1200x250" alt="" />
+                    <img src={image} alt="" />
                 </div>
                 <div className="Itemcard-container">
                 {menItem.map((men)=>(
