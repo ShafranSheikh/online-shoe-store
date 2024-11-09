@@ -1,0 +1,80 @@
+.user-panel {
+    background-color: #EAEAEA; /* Black */
+    padding: 20px;
+    margin: 20px;
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+    border-radius: 20px;
+    color: #EEEEEE; /* White */
+  }
+  
+  h1 {
+    text-align: center;
+    color: #151515; /* Light Pink */
+    margin-bottom: 30px;
+  }
+  
+  .user-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+  }
+  
+  .user-table th,
+  .user-table td {
+    padding: 12px 15px;
+    border: 1px solid #EEEEEE; /* White */
+    text-align: center;
+    border-radius: 5px;
+  }
+  
+  .user-table th {
+    background-color: #373A40; /* Dark Pink */
+    color: #EEEEEE; /* White */
+  }
+  
+  .user-table tr{
+    background-color: #D8D9DA;
+    color:#222831;
+    border-radius: 5px;
+  }
+  
+  
+  .delete-btn {
+    background-color: #A91D3A; /* Dark Pink */
+    color: #EEEEEE; /* White */
+    border: none;
+    border-radius: 10px;
+    padding: 8px 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .delete-btn:hover {
+    background-color: #C73659; /* Light Pink */
+  }
+  
+  .delete-btn:active {
+    background-color: #A91D3A; /* Dark Pink */
+  }
+  .home-button {
+    background-color: #a91d3a; /* Dark pink for button */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-bottom: 20px; /* Space below the button */
+  }
+  
+  .home-button:hover {
+    background-color: #c73659; /* Light pink on hover */
+  }
+  
+  @media screen and (max-width: 768px) {
+    .user-table th, .user-table td {
+      font-size: 14px;
+      padding: 8px;
+    }
+  }
+  

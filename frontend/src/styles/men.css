@@ -28,6 +28,7 @@
     object-fit: cover;
     background-repeat: no-repeat;
     margin: 0;
+    transform: 0.5s;
 }
 .Itemcard-container{
     min-height: 40em;

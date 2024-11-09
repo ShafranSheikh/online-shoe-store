@@ -11,7 +11,7 @@ const Men = ()=>{
     const fetchRandomImage = async ()=>{
         try{
             const response = await axios.get('http://localhost:3000/api/Ads/random');
-            setImage(response.data.imgsrc);
+            setImage(response.data.imgSrc);
         }catch(error){
             console.error("Error Fetching Images", error);
         }
@@ -22,9 +22,9 @@ const Men = ()=>{
 
         const interval = setInterval(()=>{
             fetchRandomImage();
-        },15000);
+        },2000);
         return () => clearInterval(interval); //cleanup interval on component unmount
-    })
+    });
     
     useEffect(() => {
         const fetchMenItem = async () =>{

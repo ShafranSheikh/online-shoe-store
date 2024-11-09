@@ -11,7 +11,7 @@ const Kid = ()=>{
                 const response = await axios.get('http://localhost:3000/api/Kids')
                 setKidItem(response.data);
             }catch(error){
-                console.error('Error fetching Men items',error);
+                console.error('Error fetching Kid items',error);
             };
         }
         fetchKidItem();

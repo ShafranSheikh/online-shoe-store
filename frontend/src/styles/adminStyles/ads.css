@@ -1,0 +1,98 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ffffff; /* White background */
+    color: #151515; /* Dark text */
+  }
+  
+  .ad-panel {
+    margin: 20px;
+    padding: 20px;
+    background-color: #eeeeee; /* Light gray panel */
+    border-radius: 8px;
+  }
+  
+  h2 {
+    color: #151515; /* Black for the header */
+    margin-bottom: 20px;
+  }
+  
+  .form-section {
+    margin-bottom: 20px;
+  }
+  
+  .upload-label {
+    font-size: 16px;
+    color: #151515; /* Black text */
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  input[type="file"] {
+    margin-top: 10px;
+    padding: 10px;
+  }
+  
+  .preview {
+    margin-top: 10px;
+  }
+  
+  .preview img {
+    width: 150px;
+    height: auto;
+    border: 1px solid #151515; /* Dark border */
+  }
+  
+  .ads-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  .ads-table th,
+  .ads-table td {
+    border: 1px solid #151515; /* Dark borders */
+    padding: 10px;
+    text-align: center;
+  }
+  
+  .ads-table th {
+    background-color: #a91d3a; /* Dark pink for table header */
+    color: #ffffff; /* White text in the header */
+  }
+  
+  .ads-table td {
+    background-color: #ffffff; /* White background for the table rows */
+  }
+  
+  .ad-image {
+    width: 100px;
+    height: auto;
+  }
+  
+  .delete-button {
+    background-color: #c73659; /* Light pink for the delete button */
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .delete-button:hover {
+    background-color: #a91d3a; /* Darker pink on hover */
+  }
+  
+  .home-button {
+    background-color: #a91d3a; /* Dark pink for button */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-bottom: 20px; /* Space below the button */
+  }
+  
+  .home-button:hover {
+    background-color: #c73659; /* Light pink on hover */
+  }
+  
