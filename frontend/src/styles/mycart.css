@@ -72,12 +72,16 @@ h1{
 }
 .item-container .item-content .item-description{
     height: 7.5em;
-    background-color: #eeb902;
+    background-color: #e8e9f3;
     box-shadow: 2px 2px 20px #e8e9f3;
-    color: white;
+    border: 2px solid #6c757d;
+    color: #353f48;
     margin: 5px;
     border-radius: 5px;
     padding: 7px;
+}
+.item-container .item-content .item-description h2{
+    margin: 0;
 }
 .item-container .item-content .item-description p{
     margin: 0;
@@ -181,6 +185,9 @@ h1{
     margin: 6px 10px;
     padding: 10px;
     box-shadow: 2px 2px 20px #aaaaaa;
+}
+.item-checkout .promo-content h2{
+    margin: 0;
 }
 .item-checkout .form-content{
     display: flex;
