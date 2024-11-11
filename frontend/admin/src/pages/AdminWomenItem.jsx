@@ -1,27 +1,27 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import '../../styles/adminStyles/items.css';
-const AdminKidItem = () => {
+import '../styles/item.css'
+const AdminWomenItem = () => {
     const [imgFile, setImgFile] = useState(null);
-    const [kidItems, setKidItem] = useState([]);
+    const [womenItems, setWomenItem] = useState([]);
     const [selectedImage, setSecectedImage] = useState(null);
-    const [kName, setKname] = useState("");
-    const [kPrice, setKprice] = useState("");
-    const [kQty, setKQuantity] = useState("");
-    const [kDescription, setKdescription] = useState("");
+    const [wName, setWname] = useState("");
+    const [wPrice, setWprice] = useState("");
+    const [wQty, setWQuantity] = useState("");
+    const [wDescription, setWdescription] = useState("");
     const navigate = useNavigate();
     //fetching images from the backend
     useEffect(() => {
-      const fetchKidItem = async () =>{
+      const fetchWomenItem = async () =>{
         try{
-          const response = await axios.get('http://localhost:3000/api/Kids')
-          setKidItem(response.data);
+          const response = await axios.get('http://localhost:3000/api/Womens')
+          setWomenItem(response.data);
         }catch(error){
           console.error('Error fetching Women items',error);
         };
       }
-      fetchKidItem();
+      fetchWomenItem();
     }, []);
     
     //handle file selection
@@ -40,13 +40,13 @@ const AdminKidItem = () => {
       try {
           const formdata = new FormData();
           formdata.append("image", imgFile);
-          formdata.append("name", kName);
-          formdata.append("price", kPrice);
-          formdata.append("quantity", kQty);
-          formdata.append("description", kDescription);
+          formdata.append("name", wName);
+          formdata.append("price", wPrice);
+          formdata.append("quantity", wQty);
+          formdata.append("description", wDescription);
           //send images to the backend
           try{
-            const response = await axios.post("http://localhost:3000/api/Kids",formdata,{
+            const response = await axios.post("http://localhost:3000/api/Womens",formdata,{
               headers:{
                 'content-type':'multipart/form-data'
               },
@@ -54,12 +54,12 @@ const AdminKidItem = () => {
             alert('Item Uploades successfully');
             setImgFile(null);
             setSecectedImage(null);
-            setKname("");
-            setKprice("");
-            setKQuantity("");
-            setKdescription("");
+            setWname("");
+            setWprice("");
+            setWQuantity("");
+            setWdescription("");
           }catch(error){
-            console.error("Error uploading Kid Item",error);
+            console.error("Error uploading Women Item",error);
           }
       } catch (error) {
         console.error("Error uploading Item", error);
@@ -69,10 +69,10 @@ const AdminKidItem = () => {
     //handle image delete
     const handleDelete = async (id) => {
       try{
-        const response = await axios.delete(`http://localhost:3000/api/Kids/${id}`);
+        const response = await axios.delete(`http://localhost:3000/api/Womens/${id}`);
         if(response.data.success){
           //remove the deleted item from the state
-          setKidItem(kidItems.filter((item)=> item.id !== id));
+          setWomenItem(womenItems.filter((item)=> item.id !== id));
           alert('Item Deleted Successfully');
         }else{
           console.error("Error deleting image", response.data.message);
@@ -86,36 +86,36 @@ const AdminKidItem = () => {
     };
     return (
       <div className="mens-container">
-        <h2>Manage Kid's Items</h2>
+        <h2>Manage Women's Items</h2>
         <button className="home-button" onClick={() => navigate("/AdminDashboard")}>
-        Go to Dashboard
+          Go to Dashboard
         </button>
   
         <div className="form-section">
           <form onSubmit={handleFormSubmit} >
             <label className="upload-label">
-              Add New Kid Item Image:
+              Add New Women Item Image:
               <input type="file" name="image"  onChange={handleFileChange}/>
             </label>
             <label>
               Product Name:
-              <input type="text" name="name"  value={kName} onChange={(e)=>setKname(e.target.value)}/>
+              <input type="text" name="name"  value={wName} onChange={(e)=>setWname(e.target.value)}/>
             </label>
             <label>
               Product Price:
-              <input type="number" name="price" value={kPrice} onChange={(e)=>setKprice(e.target.value)}/>
+              <input type="number" name="price" value={wPrice} onChange={(e)=>setWprice(e.target.value)}/>
             </label>
             <label>
               Product Quantity:
-              <input type="number" name="quantity" value={kQty} onChange={(e)=>setKQuantity(e.target.value)}/>
+              <input type="number" name="quantity" value={wQty} onChange={(e)=>setWQuantity(e.target.value)}/>
             </label>
             <label>
               Description:
               <textarea
                 name="description"
-                value={kDescription}
+                value={wDescription}
                 rows="3"
-                onChange={(e)=>setKdescription(e.target.value)}
+                onChange={(e)=>setWdescription(e.target.value)}
               />
             </label>
             <button type="submit" className="submit-button">
@@ -143,23 +143,23 @@ const AdminKidItem = () => {
             </tr>
           </thead>
           <tbody>
-            {kidItems.map((kid) => (
-              <tr key={kid.id}>
+            {womenItems.map((women) => (
+              <tr key={women.id}>
                 <td>
                   <img
-                    src={kid.data}
-                    alt={`Item ${kid.id}`}
+                    src={women.data}
+                    alt={`Item ${women.id}`}
                     className="ad-image"
                   />
                 </td>
-                <td>{kid.name}</td>
-                <td>${kid.price}</td>
-                <td>{kid.quantity}</td>
-                <td className="item-description">{kid.description}</td>
+                <td>{women.name}</td>
+                <td>${women.price}</td>
+                <td>{women.quantity}</td>
+                <td className="item-description">{women.description}</td>
                 <td>
                   <button
                     className="delete-button"
-                    onClick={() => handleDelete(kid.id)}
+                    onClick={() => handleDelete(women.id)}
                   >
                     Delete
                   </button>
@@ -171,4 +171,4 @@ const AdminKidItem = () => {
       </div>
     );
 }
-export default AdminKidItem;
+export  default AdminWomenItem;

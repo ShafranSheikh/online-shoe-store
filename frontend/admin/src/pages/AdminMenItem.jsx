@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import '../../styles/adminStyles/items.css'
+import '../styles/item.css';
 const AdminMenItem = () => {
     const [imgFile, setImgFile] = useState(null);
     const [menItems, setMenItem] = useState([]);

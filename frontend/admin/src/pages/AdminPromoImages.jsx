@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import '../../styles/adminStyles/ads.css'
+import '../styles/ads.css'
 const AdminPromoImages = () => {
     const [image, setImage] = useState(null);
     const [selectedImage, setSelectedImage] = useState(null);
