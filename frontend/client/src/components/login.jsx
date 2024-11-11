@@ -15,6 +15,7 @@ const Login = () => {
                 },{withCredentials:true});
                 if(response.status === 200){
                     navigate('/');
+                    window.location.reload();
                 }
                 setEmail('');
                 setPassword('');
