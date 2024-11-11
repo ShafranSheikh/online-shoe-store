@@ -29,20 +29,28 @@ body {
     padding: 0;
   }
   
-  .sidebar ul li {
+  .sidebar ul li,.sidebar  {
     margin: 15px 0;
   }
   
-  .sidebar ul li a {
+  .sidebar ul li a,.sidebar li a button  {
     text-decoration: none;
     color: #EEEEEE ;
     font-size: 18px;
   }
   
-  .sidebar ul li a:hover {
+  .sidebar ul li a:hover,.sidebar button:hover {
     color: #A91D3A ;
   }
-  
+  .sidebar button {
+    background: none;
+    text-decoration: none;
+    color: #EEEEEE;
+    font-size: 18px;
+    position: absolute;
+    bottom: 30px;
+}
+
   /* Main content styles */
   .main-content {
     flex-grow: 1;

@@ -5,26 +5,27 @@ import '../styles/men.css'
 const Men = ()=>{
     const [menItem, setMenItem] = useState([]);
     const [image, setImage] = useState(null);
+    const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
 
 
     const fetchRandomImage = async ()=>{
         try{
+            setLoading(false); // Start with loading as false
             const response = await axios.get('http://localhost:3000/api/Ads/random');
             setImage(response.data.imgSrc);
+            setLoading(true); // Trigger the animation after loading
         }catch(error){
             console.error("Error Fetching Images", error);
         }
     };
     
     useEffect(()=>{
-        fetchRandomImage();
-
         const interval = setInterval(()=>{
             fetchRandomImage();
-        },2000);
+        },4000);
         return () => clearInterval(interval); //cleanup interval on component unmount
-    });
+    },[]);
     
     useEffect(() => {
         const fetchMenItem = async () =>{
@@ -41,7 +42,7 @@ const Men = ()=>{
     return(
             <div className="menItem-container">
                 <div className="promo-container">
-                    <img src={image} alt="" />
+                    <img src={image} alt="" className={`fade-in ${loading ? ' loaded' : ''}`}/>
                 </div>
                 <div className="Itemcard-container">
                 {menItem.map((men)=>(

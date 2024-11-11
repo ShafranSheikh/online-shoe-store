@@ -19,16 +19,25 @@
 }
 .menItem-container .promo-container{
     margin: 20px;
-    height: 25rem;
+    height: 27rem;
     background-color: #f2f2f2;
+    border-radius: 10px;
+    overflow: hidden;
+    object-fit: cover;
 }
 .menItem-container .promo-container img{
     height: 100%;
     width: 100%;
-    object-fit: cover;
     background-repeat: no-repeat;
     margin: 0;
-    transform: 0.5s;
+}
+.fade-in {
+    opacity: 0;
+    transition: opacity 1s ease-in; /* Adjust the timing as needed */
+}
+
+.fade-in.loaded {
+    opacity: 1;
 }
 .Itemcard-container{
     min-height: 40em;
