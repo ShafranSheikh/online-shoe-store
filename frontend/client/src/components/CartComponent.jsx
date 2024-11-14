@@ -82,7 +82,6 @@ const CartComponent = () => {
                             </div>
                             <div className="item-buttons">
                                 <button className='remove-button' onClick={()=> removeFromCart(item.id, item.size)}>Remove Item</button>
-                                <button className='add-button'>Proceed to pay</button>
                             </div> 
                             
                         </div>

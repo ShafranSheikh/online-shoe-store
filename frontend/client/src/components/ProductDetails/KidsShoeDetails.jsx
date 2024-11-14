@@ -4,6 +4,8 @@ import '../../styles/mensproductdetails.css';
 import ShoppingCartSharpIcon from '@mui/icons-material/ShoppingCartSharp';
 import { useParams } from 'react-router-dom';
 import { useCart } from '../../Context/ShopContext';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const KidsShoeDetails = () => {
 
   const [size, setSize] = useState(null);
@@ -18,7 +20,7 @@ const KidsShoeDetails = () => {
   }
   const handleAddToCart = () =>{
     if(!size){
-      alert("Please select a size before adding to cart");
+      toast.warning("please select a size Before adding to cart.")
       return;
     }
 
@@ -31,6 +33,7 @@ const KidsShoeDetails = () => {
       size: size,
       image: kid.data
     });
+    toast.success("Item successfully added to the cart!");
   };
   return (
       <div className='product-container'>
@@ -63,6 +66,18 @@ const KidsShoeDetails = () => {
             <button onClick={handleAddToCart}>Add to Cart <ShoppingCartSharpIcon style={{"fontSize":"large","marginLeft":"10px"}} /></button>
           </div>
         </div>
+        <ToastContainer 
+              position="top-right" 
+              autoClose={1000}  
+              hideProgressBar={false} 
+              newestOnTop={false}
+              closeOnClick rtl={false} 
+              pauseOnFocusLoss 
+              draggable 
+              pauseOnHover 
+              theme="light"  
+              transition: bounce
+        />
       </div>
   )
 }
