@@ -22,10 +22,10 @@ export const CartProvider = ({children})=>{
         });
     };
 
-    const removeFromCart = (itemId) =>{
-        setCartItems((prevItems)=> prevItems.filter((item)=>item.id !== itemId))
+    const removeFromCart = (itemId, itemSize) => {
+        setCartItems((prevItems) => prevItems.filter((item) => !(item.id === itemId && item.size === itemSize)));
     };
-
+    
     const clearCart = () =>{
         setCartItems([]);
     };

@@ -22,6 +22,7 @@ const MensShoeDetails = () => {
       return;
     }
 
+
     //Add item to cart with full details including selected size
     addToCart({
       id:men.id,

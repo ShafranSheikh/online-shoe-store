@@ -38,7 +38,7 @@ const CartComponent = () => {
             addToCart({ ...cartItems[index], quantity: newCounts[index] });
         }else{
             // Remove the item from the cart context only when quantity reaches 0
-            removeFromCart(cartItems[index].id);
+            removeFromCart(cartItems[index].id, cartItems[index].size);
         }
     }
     
@@ -52,7 +52,7 @@ const CartComponent = () => {
         <div className="cart-item">
         {cartItems.length >0 ?(
         cartItems.map((item, index)=>(
-                <div className="item-container"key={item.id}>
+                <div className="item-container" key={`${item.id}-${index}`}>
                     {item.image?<img src={item.image} alt="" />: <p>Image not available</p>}
                     <div className="item-content">
                         <div className="item-description">
@@ -81,7 +81,7 @@ const CartComponent = () => {
                                 <p>US {item.size}</p>
                             </div>
                             <div className="item-buttons">
-                                <button className='remove-button' onClick={()=> removeFromCart(item.id)}>Remove Item</button>
+                                <button className='remove-button' onClick={()=> removeFromCart(item.id, item.size)}>Remove Item</button>
                                 <button className='add-button'>Proceed to pay</button>
                             </div> 
                             
@@ -99,8 +99,8 @@ const CartComponent = () => {
         <div className="item-checkout">
             <div className="promo-content">
                 <h2>Enter Promo Code</h2>
-                <div className="form-content" onSubmit={handlePromoSubmit}>
-                    <form action="">
+                <div className="form-content">
+                    <form  onSubmit={handlePromoSubmit}>
                         <input type="text" placeholder='promo code'/>
                         <button type="submit">Submit</button>
                     </form>

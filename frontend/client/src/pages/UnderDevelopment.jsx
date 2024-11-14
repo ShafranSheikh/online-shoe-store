@@ -8,7 +8,7 @@ const UnderDevelopment = () => {
         navigate('/')
     }
   return (
-    <div className='content-container'>
+    <div className='development-container'>
         <img src={devImage} alt="" />
         <h1>Sorry The Page is Under Development Process !!</h1>
         <button onClick={handleSubmit}>
