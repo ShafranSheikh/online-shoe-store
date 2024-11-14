@@ -4,7 +4,7 @@ import axios from 'axios';
 const AuthContext = createContext();
 
 export const AuthProvider = ({children}) => {
-    const [isAuthenticated, setIsAuthenticated] = useState(false);
+    const [isAuthenticated, setIsAuthenticated] = useState(null);
 
     //check authentication on mount
     useEffect(()=>{
@@ -18,6 +18,7 @@ export const AuthProvider = ({children}) => {
         };
         checkAuth();
     },[]);
+    
     if (isAuthenticated === null) return <div>Loading...</div>;
     return (
         <AuthContext.Provider value={{isAuthenticated, setIsAuthenticated}}>

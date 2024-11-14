@@ -100,4 +100,18 @@ body {
       margin-bottom: 20px;
     }
   }
-  
+  /* Icon container to separate from main content */
+.menu-icon-container {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  z-index: 1000; /* Keeps the icon on top of other elements */
+}
+
+/* Add margin to main-content to avoid overlap */
+.main-content {
+  flex-grow: 1;
+  background-color: #EEEEEE;
+  padding: 20px;
+  margin-top: 50px; /* Adjust this to ensure the content appears below the icon */
+}

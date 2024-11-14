@@ -1,8 +1,10 @@
 import React, {useState, useEffect} from 'react'
+import { useNavigate } from 'react-router-dom';
 import '../styles/mycart.css';
 import { useCart } from '../Context/ShopContext';
 const CartComponent = () => {
     const [counts, setCounts] = useState([]);
+    const navigate = useNavigate();
     const {cartItems, addToCart, removeFromCart, clearCart} = useCart();
     //Initialize count based on cartItems length
     useEffect(()=>{
@@ -38,6 +40,10 @@ const CartComponent = () => {
             // Remove the item from the cart context only when quantity reaches 0
             removeFromCart(cartItems[index].id);
         }
+    }
+    
+    const handlePromoSubmit = () =>{
+        navigate('/underdevelopment');
     }
     return (
         <>
@@ -84,13 +90,16 @@ const CartComponent = () => {
                 </div>
             ))
         ): (
-            <p> your cart is empty </p>
+            /* From Uiverse.io by JkHuger */ 
+            <div className='animation-container'>
+            <div className="animation">Your Cart is empty......</div>
+            </div>
         )}
         </div>
         <div className="item-checkout">
             <div className="promo-content">
                 <h2>Enter Promo Code</h2>
-                <div className="form-content">
+                <div className="form-content" onSubmit={handlePromoSubmit}>
                     <form action="">
                         <input type="text" placeholder='promo code'/>
                         <button type="submit">Submit</button>

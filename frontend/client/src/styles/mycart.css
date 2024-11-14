@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Berkshire+Swash&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
 *{
     margin:0;
     padding:0;
@@ -253,3 +254,38 @@ h1{
 .item-checkout .checkout-button button:hover{
     background-color:#ffb24d ;
 }
+
+.animation-container{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* From Uiverse.io by JkHuger */ 
+@keyframes typing {
+    from {
+      width: 0;
+    }
+  }
+  
+  @keyframes blink-caret {
+    50% {
+      border-color: transparent;
+    }
+  }
+  /* When you change the amount of characters in the h1, you have to change 
+  the with: 14ch and  steps(14, end), if there is 14 characters, put 14, 
+  if there is 20 put 20 */
+  .animation {
+    font: bold 200% 'Berkshire Swash', monospace;
+    border-right: .1em solid #14213d;
+    width: 18ch;
+    height: 2ch;
+    margin: 2em 2em;
+    white-space: nowrap;
+    overflow: hidden;
+    -webkit-animation: typing 3s steps(14, end),
+                 blink-caret .5s step-start infinite alternate;
+  }

@@ -16,11 +16,13 @@ const Login = () => {
                 if(response.status === 200){
                     navigate('/');
                     window.location.reload();
+                }else{
+                    alert('Username or password incorrect, please try again');
                 }
                 setEmail('');
                 setPassword('');
         }catch(error){
-            console.error("Username or passwor incorrect, please try again",error);
+            console.error(error);
         }
         
     }

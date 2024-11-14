@@ -13,6 +13,7 @@ import { CartProvider } from './Context/ShopContext';
 import WomensShoeDetails from './components/ProductDetails/WomensShoeDetails';
 import Kid from './pages/Kid';
 import KidsShoeDetails from './components/ProductDetails/KidsShoeDetails';
+import UnderDevelopment from './pages/UnderDevelopment';
 
 function App() {
     
@@ -32,6 +33,7 @@ function App() {
           <Route path='/Kid' element={<Kid />} />
           <Route path='/KidsShoeDetails/:id' element={<KidsShoeDetails />} />
           <Route path='/MyCart' element={<MyCart />} />
+          <Route path='/underdevelopment' element={<UnderDevelopment />} />
         </Routes>
       </Router>
       </CartProvider>
