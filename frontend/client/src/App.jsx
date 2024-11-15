@@ -14,29 +14,36 @@ import WomensShoeDetails from './components/ProductDetails/WomensShoeDetails';
 import Kid from './pages/Kid';
 import KidsShoeDetails from './components/ProductDetails/KidsShoeDetails';
 import UnderDevelopment from './pages/UnderDevelopment';
+import ProtectedRoute from './components/ProtectedRoute';
+import { AuthProvider } from './Context/AuthProvider';
 
 function App() {
     
   return (
-    <CartProvider>
-      <Router>
-        <Navbar />
-        <Routes>
-          <Route path='/' element={<Homepage />} />
-          <Route path='/Checkoutpage' element={<Checkoutpage />} />
-          <Route path='/Loginpage' element={<Loginpage />} />
-          <Route path='/Signuppage' element={<Signuppage />} />
-          <Route path='/Men' element={<Men />} /> 
-          <Route path='/MensShoeDetails/:id' element={<MensShoeDetails />} />
-          <Route path="/Women" element={<Women />} />
-          <Route path='/WomensShoeDetails/:id' element={<WomensShoeDetails />} />
-          <Route path='/Kid' element={<Kid />} />
-          <Route path='/KidsShoeDetails/:id' element={<KidsShoeDetails />} />
-          <Route path='/MyCart' element={<MyCart />} />
-          <Route path='/underdevelopment' element={<UnderDevelopment />} />
-        </Routes>
-      </Router>
+    <AuthProvider>
+      <CartProvider>
+        <Router>
+          <Navbar />
+          <Routes>
+            <Route path='/' element={<Homepage />} />
+            <Route path='/Checkoutpage' element={<Checkoutpage />} />
+            <Route path='/Loginpage' element={<Loginpage />} />
+            <Route path='/Signuppage' element={<Signuppage />} />
+            <Route path='/Men' element={<Men />} /> 
+            <Route path='/MensShoeDetails/:id' element={<MensShoeDetails />} />
+            <Route path="/Women" element={<Women />} />
+            <Route path='/WomensShoeDetails/:id' element={<WomensShoeDetails />} />
+            <Route path='/Kid' element={<Kid />} />
+            <Route path='/KidsShoeDetails/:id' element={<KidsShoeDetails />} />
+            <Route element={<ProtectedRoute />}>
+              <Route path='/MyCart' element={<MyCart />} />
+            </Route>
+            <Route path='/underdevelopment' element={<UnderDevelopment />} />
+          </Routes>
+        </Router>
       </CartProvider>
+    </AuthProvider>
+    
   )
 }
 
