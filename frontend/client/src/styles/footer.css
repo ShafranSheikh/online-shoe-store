@@ -1,0 +1,43 @@
+.footer-container {
+    background-color: #222; /* Dark background for contrast */
+    color: #fff; /* White text for readability */
+    padding: 20px 0; /* Spacing around the footer */
+    text-align: center; /* Center-align all text and content */
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2); /* Subtle shadow for a lifted look */
+}
+
+.list-container {
+    display: flex;
+    justify-content: center; /* Center the list */
+    align-items: center; /* Vertically align items */
+    gap: 30px; /* Space between list items */
+}
+
+.list-container ul {
+    list-style: none; /* Remove bullet points */
+    padding: 0; /* Remove default padding */
+    margin: 0; /* Remove default margin */
+    display: flex; /* Arrange items in a row */
+    gap: 20px; /* Space between links */
+}
+
+.list-container li {
+    font-size: 1.1rem; /* Slightly larger font for visibility */
+}
+
+.list-container a {
+    color: #fff; /* White text for links */
+    text-decoration: none; /* Remove underline */
+    transition: color 0.3s ease; /* Smooth hover effect */
+}
+
+.list-container a:hover {
+    color: #f39c12; /* Change color on hover */
+}
+
+@media (max-width: 768px) {
+    .list-container {
+        flex-direction: column; /* Stack links vertically on smaller screens */
+        gap: 15px; /* Adjust spacing for smaller screens */
+    }
+}

@@ -16,6 +16,7 @@ import KidsShoeDetails from './components/ProductDetails/KidsShoeDetails';
 import UnderDevelopment from './pages/UnderDevelopment';
 import ProtectedRoute from './components/ProtectedRoute';
 import { AuthProvider } from './Context/AuthProvider';
+import Footer from './components/footer';
 
 function App() {
     
@@ -40,6 +41,7 @@ function App() {
             </Route>
             <Route path='/underdevelopment' element={<UnderDevelopment />} />
           </Routes>
+          <Footer />
         </Router>
       </CartProvider>
     </AuthProvider>
